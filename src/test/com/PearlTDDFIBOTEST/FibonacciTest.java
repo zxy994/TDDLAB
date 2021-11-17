@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FibonacciTest {
     @Test
-    public void fibHappyCase() {
+    public void fibNaturalNumbers() {
         Fibonacci fibonacci = new Fibonacci();
         List<Integer> actual = fibonacci.fib(7);
         List<Integer> expected = Arrays.asList(0, 1, 1, 2, 3, 5, 8);
@@ -19,9 +19,10 @@ public class FibonacciTest {
     @Test
     public void fibIncaseOfZero(){
         Fibonacci fibonacci = new Fibonacci();
-        List<Integer> actual = fibonacci.fib(0);
-        List<Integer> expected = Arrays.asList(0);
-        Assert.assertEquals(expected, actual);
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class, () -> {
+            fibonacci.fib(0) ;
+        });
+        Assert.assertEquals("Invalid Input", exception.getMessage());
     }
 
     @Test

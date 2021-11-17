@@ -11,11 +11,12 @@ public class Fibonacci {
     //A list to hold fibonacci sequence generated based on parameter n
         List<Integer> sequence = new java.util.ArrayList<>(List.of(0,1));
 
+
     //Control if statement based on test demands
-        if(n == 0 || n == 1) {
+        if(n == 1) {
             List<Integer> caseZero = Arrays.asList(0);
             return caseZero;
-        } else if (n < 0){
+        } else if (n < 1){
             throw new IllegalArgumentException("Invalid Input");
         }
 
@@ -25,6 +26,7 @@ public class Fibonacci {
             firstNum = secondNum;
             secondNum = next;
             sequence.add(secondNum);
+
         }
 
    // Returning fibonacci sequence
